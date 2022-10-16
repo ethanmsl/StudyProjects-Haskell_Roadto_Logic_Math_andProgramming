@@ -28,6 +28,17 @@ sieve (n : xs)      = n : sieve (mark xs 1 n)
 primes_erat :: [Integer]
 primes_erat = sieve [2..]
 
+-- NOTE: for later, the mark system is clever, but opaque
+-- putting off renaming variables ('n' in sieve should be 'prime', btw)
+-- the mark logic just defines a loop for k = m after m runs and then resets
+-- and it marks those elements as 0 (to remove them)
+-- clevr, but not immediately obvious
+-- also, perhaps a very poor use of type system
+-- since we're using Integers as 'markers'
+-- the fact that the system breaks if the integer-list input constains
+-- 1 is also a problem (it would mark everything a 'multiple'/full-rep loop)
+-- among other stringent input requirements (like order)
+
 
 --------------------
 -- proper divisors of a number (i.e. all the positive integers, not including the number itself .. so 1 counts, but n itself doesn't -\_0_/-)
