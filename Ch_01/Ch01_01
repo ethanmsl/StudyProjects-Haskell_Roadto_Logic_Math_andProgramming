@@ -1,0 +1,8 @@
+
+
+-- says whether `d` is cleanly divided by `n`
+divides :: Integral a => a -> a -> Bool
+divides d n = 
+    rem d n == 0
+
+
